@@ -1,17 +1,18 @@
-import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
+import {initializeApp} from 'firebase/app'
+import {getAuth} from 'firebase/auth'
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDiNkqbYIoq3MbFTPj5FPudgt4rehbRIOs",
-  authDomain: "react-firebase-auth-2024.firebaseapp.com",
-  projectId: "react-firebase-auth-2024",
-  storageBucket: "react-firebase-auth-2024.appspot.com",
-  messagingSenderId: "1310810938",
-  appId: "1:1310810938:web:a5cffd0e2fabd740bba603",
-  measurementId: "G-BDE3B4X25D",
-};
+  apiKey: "AIzaSyDVLoxzhpqK3qOENAhZqMtRNnyiuQpNixo",
+  authDomain: "my-firebase-react-auth-f5b50.firebaseapp.com",
+  projectId: "my-firebase-react-auth-f5b50",
+  storageBucket: "my-firebase-react-auth-f5b50.firebasestorage.app",
+  messagingSenderId: "847032944829",
+  appId: "1:847032944829:web:7814f9b97be83512e68fd4",
+  measurementId: "G-2QG7774ST2"
+}
 
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+const app = initializeApp(firebaseConfig)
 
-export default auth;
+export const auth = getAuth(app)
+
+export default app

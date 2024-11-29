@@ -5,7 +5,7 @@ import {
   signInWithEmailAndPassword,
   signOut,
 } from "firebase/auth";
-import auth from "../firebaseConfig";
+import {auth} from "../firebaseConfig";
 import { useNavigate } from "react-router-dom";
 
 export const AuthContext = createContext(null);
@@ -34,7 +34,6 @@ export default function AuthState({ children }) {
   function loginWithFirebase() {
     setLoading(true);
     const { email, password } = loginFormData;
-
     return signInWithEmailAndPassword(auth, email, password);
   }
 
@@ -43,14 +42,14 @@ export default function AuthState({ children }) {
   }
 
   useEffect(() => {
-    const checkAuthState = onAuthStateChanged(auth, (currentUser) => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       console.log(currentUser, "currentUser");
       setUser(currentUser);
       setLoading(false);
     });
 
     return () => {
-      checkAuthState();
+      unsubscribe();
     };
   }, []);
 
